@@ -1,6 +1,11 @@
+import logging
+
+logger = logging.getLogger(__name__)
+
 class FeatureCreation:
     def __init__(self, df):
         self.df = df.copy()
+        logger.info("FeatureCreation initialized with dataset of shape: %s", self.df.shape)
 
     def createFeatures(self):
         self.df['house_age'] = 2025 - self.df['yr_built']
@@ -9,6 +14,7 @@ class FeatureCreation:
         self.df['bath_per_bed'] = self.df['bathrooms'] / (self.df['bedrooms'] + 1)
         self.df['rooms_per_floor'] = (self.df['bedrooms'] + self.df['bathrooms']) / (self.df['floors'] + 0.01)
 
+        logger.info("Feature engineering completed! New shape: %s", self.df.shape)
         return self
     
     def getDataset(self):
@@ -19,6 +25,7 @@ class FeatureSelection:
         def __init__(self, df, target):
             self.df = df.copy()
             self.target = target
+            logger.info("FeatureSelection initialized with target: %s", self.target)
         
         def filter_by_correlation(self):
             corr = self.df.corr()[self.target].abs()
@@ -28,6 +35,8 @@ class FeatureSelection:
                 selected_features.remove(self.target)
 
             self.selected_features = selected_features
+
+            logger.info("Feature selection completed! Selected features: %s", self.selected_features)
             return self
         
         def get_selected_features(self):

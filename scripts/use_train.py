@@ -11,13 +11,28 @@ from tabulate import tabulate
 from joblib import dump
 import os
 from src.train import Trainer
+from src.feature_engineering import FeatureSelection
+
+
+
+import logging
+import src.logger
+
+logger = logging.getLogger('src.use_train')
 
 # ____________________________________________ Single Split __________________________________________________
 
-df = pd.read_csv('data/engineered/engineered_House_price_dataset.csv')
+df = pd.read_csv('data/final/final_dataset.csv')
 
+fs = FeatureSelection(df, target='price')
+fs.filter_by_correlation()
+selected_features = fs.get_selected_features()
+
+# x = df[selected_features]
 x = df.drop('price', axis=1)
 y = df['price']
+
+logger.info("Dataset loaded with shape %s", df.shape)
 
 # _____________________________________________ train model __________________________________________________
 
@@ -65,15 +80,19 @@ table = tabulate(results, headers=headers, tablefmt="grid", floatfmt=".6f")
 
 print(table)
 
-# _______________________________________ save compare algorithms _____________________________________________
+logger.info("\n%s", table)
+
+# ___________________________________________ save comparison _________________________________________________
 
 def SaveComparison(table):
     with open('results/all_model_compare.txt', 'w') as f:
         f.write(table)
+logger.info("Comparison table saved at results/all_model_compare.txt")
 
 SaveComparison(table)
 
 # ___________________________________________ save best model _________________________________________________
 
 os.makedirs('model', exist_ok=True)
-dump(HistGradientBoostingRegressor, 'model/HistGradientBoostingRegressor.joblib')
+dump(HistGradientBoostingRegressor(), 'model/HistGradientBoostingRegressor.joblib')
+logger.info("Best model saved at model/HistGradientBoostingRegressor.joblib")
