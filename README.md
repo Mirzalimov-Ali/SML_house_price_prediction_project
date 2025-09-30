@@ -1,11 +1,10 @@
 # 🏠 House Price Prediction
 
-![Python Version](https://img.shields.io/badge/Python-3.10-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
+![Python Version](https://img.shields.io/badge/Python-3.11-blue)
 
 ## 📖 Projectning tavsifi
-Ushbu project King County (Washington), US uylarning narxini bashorat qilishga moslangan.  
-Maqsad: datalarni urganish, yangi featurelar yasash, data analysis qilish va turli regressor modellarini urgatib narhni aniqlik bilan predict qilish.
+Ushbu project King County (Washington), uylarning narxini bashorat qilishga moslangan. (Regression)
+Maqsad: uylarning narhini aniqlashda yordam beradi. Foydalanuvchi uz budget va talablariga mos uy qidirayotganda, model uyni narxini bashorat qiladi va qaysi faktor (maydoni, xonalar soni, qurilish yili va boshqalar) uyni qimmat yoki arzon qilayotganini kursatadi. Shu tariqa, foydalanuvchi uz budgetiga mos keladigan uylarni kurib, qaror qabul qilishi mumkin, yoki xohlagan uyni narxini oldindan bilib rejalashtirishi mumkin.
 
 ## 🔹 Future Vision
 1. [Dataset](#-dataset)
