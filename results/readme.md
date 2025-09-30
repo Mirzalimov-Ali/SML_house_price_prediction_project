@@ -1,3 +1,16 @@
+## 📊 Model Performance Comparison
+
+`results/all_model_compare.txt` file barcha ishlatilgan algoritmlarning natijalarini solishtiradi. 
+Bu fileda shu malumotlar mavjud:
+
+- **Algorithm** – ishlatilgan model nomi  
+- **r2_score** – modelning R² resulti
+- **mean_absolute_error** – modelning urtacha xatolik qiymati  
+- **K-Fold Mean** – K-Fold cross-validation orqali olingan urtacha natija  
+- **K-Fold Std** – K-Fold natijalari tarqalishi
+
+### Misol ko‘rinish:
+
 +-------------------------------+------------+-----------------------+---------------+--------------+
 | Algorithm                     |   r2_score |   mean_absolute_error |   K-Fold Mean |   K-Fold Std |
 +===============================+============+=======================+===============+==============+
@@ -27,3 +40,5 @@
 +-------------------------------+------------+-----------------------+---------------+--------------+
 | AdaBoostRegressor             |   0.765273 |              0.202334 |      0.765347 |     0.007268 |   => worst model
 +-------------------------------+------------+-----------------------+---------------+--------------+
+
+> 🔹 Shu table ga kura: **HistGradientBoostingRegressor** eng yaxshi natijaga ega bulgan model hisoblanadi. eng yuqori R² va eng past MAE.  
