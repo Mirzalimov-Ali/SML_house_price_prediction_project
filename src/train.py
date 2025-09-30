@@ -36,7 +36,7 @@ class Trainer:
                 "Evaluation done for model %s: r2=%.6f, mae=%.6f, kfold_mean=%.6f, kfold_std=%.6f",
                 type(self.model).__name__, self.r2, self.mae, self.kfold.mean(), self.kfold.std()
             )
-            return self.r2, self.mae, self.kfold
+            return self.r2, self.mae, self.kfold, self.y_test, y_pred
         except Exception as e:
             logger.error("Error during evaluation: %s", str(e))
             raise e

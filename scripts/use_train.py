@@ -53,6 +53,9 @@ models = [
 ]
 
 results = []
+best_r2 = -float("inf") # eng kichkina mumkun bulgan infinity son
+best_trained_model = None
+best_model_name = ""
 
 for model in models:
     trainer = Trainer(model, x, y)
@@ -60,9 +63,15 @@ for model in models:
 
     results.append([model.__class__.__name__, trainer.r2, trainer.mae, trainer.kfold.mean(), trainer.kfold.std()])
 
+    if trainer.r2 > best_r2:
+        best_r2 = trainer.r2
+        best_trained_model = trainer.model
+        best_model_name = model.__class__.__name__
+
 # ______________________________________________ tabulate ____________________________________________________
 
 headers = ["Algorithm", "r2_score", "mean_absolute_error", "K-Fold Mean", "K-Fold Std"]
+
 best_model = max(results, key=lambda x: x[1])
 worst_model = min(results, key=lambda x: x[1])
 
@@ -87,12 +96,17 @@ logger.info("\n%s", table)
 def SaveComparison(table):
     with open('results/all_model_compare.txt', 'w') as f:
         f.write(table)
-logger.info("Comparison table saved at results/all_model_compare.txt")
+
 
 SaveComparison(table)
+logger.info("Comparison table saved at results/all_model_compare.txt")
 
 # ___________________________________________ save best model _________________________________________________
 
-os.makedirs('model', exist_ok=True)
-dump(HistGradientBoostingRegressor(), 'model/HistGradientBoostingRegressor.joblib')
-logger.info("Best model saved at model/HistGradientBoostingRegressor.joblib")
+if best_trained_model is not None:
+    os.makedirs('model', exist_ok=True)
+    save_path = f'model/{best_model_name}.joblib'
+    dump(best_trained_model, save_path)
+    logger.info("Best model '%s' saved successfully at '%s' with r2=%.6f", best_model_name, save_path, best_r2)
+else:
+    logger.error("No model was selected to save. Check the training loop.")

@@ -243,4 +243,76 @@
 | AdaBoostRegressor             |   0.765273 |              0.202334 |      0.765347 |     0.007268 |
 +-------------------------------+------------+-----------------------+---------------+--------------+
 2025-09-28 22:54:12,230 - INFO - src.use_train - Comparison table saved at results/all_model_compare.txt
-2025-09-28 22:54:12,231 - INFO - src.use_train - Best model saved at model/HistGradientBoostingRegressor.joblib
+2025-09-28 22:54:12,231 - INFO - src.use_train - Best model saved at model/HistGradientBoostingRegressor.joblib2025-09-30 16:25:07,480 - INFO - src.feature_engineering - FeatureSelection initialized with target: price
+2025-09-30 16:25:07,499 - INFO - src.feature_engineering - Feature selection completed! Selected features: ['bedrooms', 'bathrooms', 'sqft_living', 'floors', 'view', 'grade', 'sqft_above', 'sqft_basement', 'lat', 'sqft_living15', 'bath_per_bed']
+2025-09-30 16:25:07,500 - INFO - src.use_train - Dataset loaded with shape (21613, 26)
+2025-09-30 16:25:07,500 - INFO - src.train - Trainer initialized for model: LinearRegression, dataset shape: (21613, 25)
+2025-09-30 16:25:07,512 - INFO - src.train - Model LinearRegression trained successfully.
+2025-09-30 16:25:07,547 - INFO - src.train - Evaluation done for model LinearRegression: r2=0.778616, mae=0.192870, kfold_mean=0.777548, kfold_std=0.004691
+2025-09-30 16:25:07,547 - INFO - src.train - Trainer initialized for model: Lasso, dataset shape: (21613, 25)
+2025-09-30 16:25:07,692 - INFO - src.train - Model Lasso trained successfully.
+2025-09-30 16:25:08,379 - INFO - src.train - Evaluation done for model Lasso: r2=0.771071, mae=0.195671, kfold_mean=0.770952, kfold_std=0.003623
+2025-09-30 16:25:08,379 - INFO - src.train - Trainer initialized for model: Ridge, dataset shape: (21613, 25)
+2025-09-30 16:25:08,383 - INFO - src.train - Model Ridge trained successfully.
+2025-09-30 16:25:08,404 - INFO - src.train - Evaluation done for model Ridge: r2=0.778267, mae=0.193038, kfold_mean=0.777024, kfold_std=0.004473
+2025-09-30 16:25:08,405 - INFO - src.train - Trainer initialized for model: ElasticNet, dataset shape: (21613, 25)
+2025-09-30 16:25:11,948 - INFO - src.train - Model ElasticNet trained successfully.
+2025-09-30 16:25:29,009 - INFO - src.train - Evaluation done for model ElasticNet: r2=0.777794, mae=0.193305, kfold_mean=0.776612, kfold_std=0.004442
+2025-09-30 16:25:29,009 - INFO - src.train - Trainer initialized for model: DecisionTreeRegressor, dataset shape: (21613, 25)
+2025-09-30 16:25:29,239 - INFO - src.train - Model DecisionTreeRegressor trained successfully.
+2025-09-30 16:25:30,373 - INFO - src.train - Evaluation done for model DecisionTreeRegressor: r2=0.779006, mae=0.179849, kfold_mean=0.769882, kfold_std=0.012785
+2025-09-30 16:25:30,373 - INFO - src.train - Trainer initialized for model: RandomForestRegressor, dataset shape: (21613, 25)
+2025-09-30 16:25:59,813 - INFO - src.train - Model RandomForestRegressor trained successfully.
+2025-09-30 16:28:28,973 - INFO - src.train - Evaluation done for model RandomForestRegressor: r2=0.890724, mae=0.125577, kfold_mean=0.889131, kfold_std=0.003517
+2025-09-30 16:28:28,973 - INFO - src.train - Trainer initialized for model: GradientBoostingRegressor, dataset shape: (21613, 25)
+2025-09-30 16:28:34,905 - INFO - src.train - Model GradientBoostingRegressor trained successfully.
+2025-09-30 16:29:04,509 - INFO - src.train - Evaluation done for model GradientBoostingRegressor: r2=0.903773, mae=0.120866, kfold_mean=0.899562, kfold_std=0.002871
+2025-09-30 16:29:04,509 - INFO - src.train - Trainer initialized for model: ExtraTreesRegressor, dataset shape: (21613, 25)
+2025-09-30 16:29:10,533 - INFO - src.train - Model ExtraTreesRegressor trained successfully.
+2025-09-30 16:29:44,378 - INFO - src.train - Evaluation done for model ExtraTreesRegressor: r2=0.893124, mae=0.123205, kfold_mean=0.890864, kfold_std=0.002751
+2025-09-30 16:29:44,379 - INFO - src.train - Trainer initialized for model: HistGradientBoostingRegressor, dataset shape: (21613, 25)
+2025-09-30 16:29:46,339 - INFO - src.train - Model HistGradientBoostingRegressor trained successfully.
+2025-09-30 16:29:47,436 - INFO - src.train - Evaluation done for model HistGradientBoostingRegressor: r2=0.906147, mae=0.118156, kfold_mean=0.903152, kfold_std=0.002346
+2025-09-30 16:29:47,437 - INFO - src.train - Trainer initialized for model: SVR, dataset shape: (21613, 25)
+2025-09-30 16:30:05,943 - INFO - src.train - Model SVR trained successfully.
+2025-09-30 16:31:54,999 - INFO - src.train - Evaluation done for model SVR: r2=0.881330, mae=0.132474, kfold_mean=0.876161, kfold_std=0.004658
+2025-09-30 16:31:55,000 - INFO - src.train - Trainer initialized for model: KNeighborsRegressor, dataset shape: (21613, 25)
+2025-09-30 16:31:55,003 - INFO - src.train - Model KNeighborsRegressor trained successfully.
+2025-09-30 16:31:55,280 - INFO - src.train - Evaluation done for model KNeighborsRegressor: r2=0.787709, mae=0.178295, kfold_mean=0.787801, kfold_std=0.002358
+2025-09-30 16:31:55,280 - INFO - src.train - Trainer initialized for model: XGBRegressor, dataset shape: (21613, 25)
+2025-09-30 16:31:55,519 - INFO - src.train - Model XGBRegressor trained successfully.
+2025-09-30 16:31:56,039 - INFO - src.train - Evaluation done for model XGBRegressor: r2=0.904740, mae=0.118965, kfold_mean=0.899465, kfold_std=0.003641
+2025-09-30 16:31:56,039 - INFO - src.train - Trainer initialized for model: AdaBoostRegressor, dataset shape: (21613, 25)
+2025-09-30 16:31:57,290 - INFO - src.train - Model AdaBoostRegressor trained successfully.
+2025-09-30 16:32:03,502 - INFO - src.train - Evaluation done for model AdaBoostRegressor: r2=0.771173, mae=0.198644, kfold_mean=0.763418, kfold_std=0.009269
+2025-09-30 16:32:03,503 - INFO - src.use_train - 
++-------------------------------+------------+-----------------------+---------------+--------------+
+| Algorithm                     |   r2_score |   mean_absolute_error |   K-Fold Mean |   K-Fold Std |
++===============================+============+=======================+===============+==============+
+| LinearRegression              |   0.778616 |              0.192870 |      0.777548 |     0.004691 |
++-------------------------------+------------+-----------------------+---------------+--------------+
+| [91mLasso[0m                         |   [91m0.771071[0m |              [91m0.195671[0m |      [91m0.770952[0m |     [91m0.003623[0m |
++-------------------------------+------------+-----------------------+---------------+--------------+
+| Ridge                         |   0.778267 |              0.193038 |      0.777024 |     0.004473 |
++-------------------------------+------------+-----------------------+---------------+--------------+
+| ElasticNet                    |   0.777794 |              0.193305 |      0.776612 |     0.004442 |
++-------------------------------+------------+-----------------------+---------------+--------------+
+| DecisionTreeRegressor         |   0.779006 |              0.179849 |      0.769882 |     0.012785 |
++-------------------------------+------------+-----------------------+---------------+--------------+
+| RandomForestRegressor         |   0.890724 |              0.125577 |      0.889131 |     0.003517 |
++-------------------------------+------------+-----------------------+---------------+--------------+
+| GradientBoostingRegressor     |   0.903773 |              0.120866 |      0.899562 |     0.002871 |
++-------------------------------+------------+-----------------------+---------------+--------------+
+| ExtraTreesRegressor           |   0.893124 |              0.123205 |      0.890864 |     0.002751 |
++-------------------------------+------------+-----------------------+---------------+--------------+
+| [92mHistGradientBoostingRegressor[0m |   [92m0.906147[0m |              [92m0.118156[0m |      [92m0.903152[0m |     [92m0.002346[0m |
++-------------------------------+------------+-----------------------+---------------+--------------+
+| SVR                           |   0.881330 |              0.132474 |      0.876161 |     0.004658 |
++-------------------------------+------------+-----------------------+---------------+--------------+
+| KNeighborsRegressor           |   0.787709 |              0.178295 |      0.787801 |     0.002358 |
++-------------------------------+------------+-----------------------+---------------+--------------+
+| XGBRegressor                  |   0.904740 |              0.118965 |      0.899465 |     0.003641 |
++-------------------------------+------------+-----------------------+---------------+--------------+
+| AdaBoostRegressor             |   0.771173 |              0.198644 |      0.763418 |     0.009269 |
++-------------------------------+------------+-----------------------+---------------+--------------+
+2025-09-30 16:32:03,513 - INFO - src.use_train - Best model 'HistGradientBoostingRegressor' saved successfully at 'model/HistGradientBoostingRegressor.joblib' with r2=0.906147
